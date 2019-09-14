@@ -14,9 +14,7 @@ public abstract class Vehiculo {
 		return chofer;
 	}
 
-	public void setChofer(String chofer) {
-		this.chofer = chofer;
-	}
+	public abstract void setChofer(String chofer);
 
 	public double getKm() {
 		return km;
