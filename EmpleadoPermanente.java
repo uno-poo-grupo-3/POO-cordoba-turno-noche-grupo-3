@@ -42,7 +42,7 @@ public class EmpleadoPermanente extends Empleado {
 	public double calcularSalario() {
 		return 	(this.getHorasTrabajadas() * this.getPrecioPorHora()) + 
 				(this.getAntiguedad() * this.getPrecioPorAntiguedad()) +
-				(this.getSalarioFamiliar().getSalario());
+				(this.getSalarioFamiliar().calcularSalario());
 	}
 
 }
