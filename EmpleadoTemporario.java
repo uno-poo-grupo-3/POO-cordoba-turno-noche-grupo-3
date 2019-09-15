@@ -9,7 +9,7 @@ public class EmpleadoTemporario extends Empleado {
 	@Override
 	public double calcularSalario() {
 		return 	(this.getHorasTrabajadas() * this.getPrecioPorHora()) +
-				(this.getSalarioFamiliar().getSalario());
+				(this.getSalarioFamiliar().calcularSalario());
 	}
 	
 }
