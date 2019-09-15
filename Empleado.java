@@ -9,7 +9,7 @@ public abstract class Empleado {
 	public Empleado(double precioPorHora, int horasTrabajadas, int hijos, boolean casado) {
 		this.setPrecioPorHora(precioPorHora);
 		this.setHorasTrabajadas(horasTrabajadas);
-		this.setSalarioFamiliar(hijos, casado);
+		this.construirSalarioFamiliar(hijos, casado);
 	}
 	
 	public Empleado() {}
@@ -37,8 +37,12 @@ public abstract class Empleado {
 		this.precioPorHora = precioPorHora;
 	}
 	
-	protected void setSalarioFamiliar(int hijos, boolean casado) {
-		this.salarioFamiliar = new SalarioFamiliar(hijos, casado);
+	private void construirSalarioFamiliar(int hijos, boolean casado) {
+		this.setSalarioFamiliar(new SalarioFamiliar(hijos, casado));
+	}
+	
+	protected void setSalarioFamiliar(SalarioFamiliar salarioFamiliar) {
+		this.salarioFamiliar = salarioFamiliar;
 	}
 		
 }
