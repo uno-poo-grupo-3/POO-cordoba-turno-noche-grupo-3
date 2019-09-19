@@ -44,5 +44,34 @@ public abstract class Empleado {
 	protected void setSalarioFamiliar(SalarioFamiliar salarioFamiliar) {
 		this.salarioFamiliar = salarioFamiliar;
 	}
+	
+	@Override
+	public String toString() {
+		return "Empleado [precioPorHora=" + precioPorHora + ", horasTrabajadas=" + horasTrabajadas
+				+ ", salarioFamiliar=" + salarioFamiliar + "]";
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Empleado other = (Empleado) obj;
+		if (horasTrabajadas != other.horasTrabajadas)
+			return false;
+		if (Double.doubleToLongBits(precioPorHora) != Double.doubleToLongBits(other.precioPorHora))
+			return false;
+		if (salarioFamiliar == null) {
+			if (other.salarioFamiliar != null)
+				return false;
+		} else if (!salarioFamiliar.equals(other.salarioFamiliar))
+			return false;
+		return true;
+	}
+	
+	
 		
 }
