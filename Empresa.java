@@ -1,5 +1,7 @@
 package clase5;
 
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.ArrayList;
 
 public class Empresa {
@@ -11,9 +13,9 @@ public class Empresa {
 	public static void main(String args[]) {
 		ArrayList<Empleado> empleados = new ArrayList<Empleado>();
 		empleados.add(new EmpleadoTemporario(80, 0, true));
-		empleados.add(new EmpleadoPermanente(80, 6, 2, true));
-		empleados.add(new EmpleadoPermanente(160, 4, 0, false));
-		empleados.add(new Gerente(160, 10, 1, true));
+		empleados.add(new EmpleadoPermanente(80, LocalDate.of(2005, Month.MAY, 15), 2, true));
+		empleados.add(new EmpleadoPermanente(160, LocalDate.of(2002, Month.JANUARY, 26), 0, false));
+		empleados.add(new Gerente(160, LocalDate.of(1995, Month.NOVEMBER, 04), 1, true));
 		Empresa miEmpresa = new Empresa(1234567, "empresa falsa 123", empleados);
 		System.out.println(miEmpresa.montoTotal());
 
