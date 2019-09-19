@@ -1,17 +1,19 @@
 package clase5;
 
+import java.time.LocalDate;
+
 public class EmpleadoPermanente extends Empleado {
 	
-	private int antiguedad;
+	private LocalDate antiguedad;
 	private double precioPorAntiguedad;
 
-	public EmpleadoPermanente(int horasTrabajadas, int antiguedad, int hijos, boolean casado) {
+	public EmpleadoPermanente(int horasTrabajadas, LocalDate antiguedad, int hijos, boolean casado) {
 		super(300, horasTrabajadas, hijos, casado);
 		this.setAntiguedad(antiguedad);
 		this.setPrecioPorAntiguedad(100);
-	}
-	
-	protected EmpleadoPermanente(double precioHora, int horasTrabajadas, int antiguedad, double precioAntiguedad, int hijos, boolean casado) {
+	}	
+
+	protected EmpleadoPermanente(double precioHora, int horasTrabajadas, LocalDate antiguedad, double precioAntiguedad, int hijos, boolean casado) {
 		super(precioHora, horasTrabajadas, hijos, casado);
 		this.setAntiguedad(antiguedad);
 		this.setPrecioPorAntiguedad(precioAntiguedad);
@@ -21,11 +23,11 @@ public class EmpleadoPermanente extends Empleado {
 		super();
 	}
 	
-	public int getAntiguedad() {
+	public LocalDate getAntiguedad() {
 		return antiguedad;
 	}
 
-	public void setAntiguedad(int antiguedad) {
+	public void setAntiguedad(LocalDate antiguedad) {
 		this.antiguedad = antiguedad;
 	}
 	
@@ -41,8 +43,41 @@ public class EmpleadoPermanente extends Empleado {
 	@Override
 	public double calcularSalario() {
 		return 	(this.getHorasTrabajadas() * this.getPrecioPorHora()) + 
-				(this.getAntiguedad() * this.getPrecioPorAntiguedad()) +
+				this.getValorPorAntiguedad() +
 				(this.getSalarioFamiliar().calcularSalario());
 	}
+	
+	private double getValorPorAntiguedad() {
+		LocalDate now = LocalDate.now();
+		int año = this.getAntiguedad().getYear();
+		int antiguedadEnAños = now.minusYears(año).getYear();
+		return antiguedadEnAños * this.getPrecioPorAntiguedad();
+	}
 
+	@Override
+	public String toString() {
+		return "EmpleadoPermanente [antiguedad=" + antiguedad + ", precioPorAntiguedad=" + precioPorAntiguedad + "]";
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		EmpleadoPermanente other = (EmpleadoPermanente) obj;
+		if (antiguedad == null) {
+			if (other.antiguedad != null)
+				return false;
+		} else if (!antiguedad.equals(other.antiguedad))
+			return false;
+		if (Double.doubleToLongBits(precioPorAntiguedad) != Double.doubleToLongBits(other.precioPorAntiguedad))
+			return false;
+		return true;
+	}
+	
+	
 }
