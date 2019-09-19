@@ -36,7 +36,28 @@ public class SalarioFamiliar {
 		}
 		return salarioFamiliar;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "SalarioFamiliar [hijos=" + hijos + ", casado=" + casado + "]";
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		SalarioFamiliar other = (SalarioFamiliar) obj;
+		if (casado != other.casado)
+			return false;
+		if (hijos != other.hijos)
+			return false;
+		return true;
+	}
 	
 	
 }
