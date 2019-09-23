@@ -7,14 +7,14 @@ public class EmpleadoPermanente extends Empleado {
 	private LocalDate antiguedad;
 	private double precioPorAntiguedad;
 
-	public EmpleadoPermanente(int horasTrabajadas, LocalDate antiguedad, int hijos, boolean casado) {
-		super(300, horasTrabajadas, hijos, casado);
+	public EmpleadoPermanente(int horasTrabajadas, LocalDate antiguedad, int hijos, boolean casado, Integer dni) {
+		super(300, horasTrabajadas, hijos, casado,dni);
 		this.setAntiguedad(antiguedad);
 		this.setPrecioPorAntiguedad(100);
 	}	
 
-	protected EmpleadoPermanente(double precioHora, int horasTrabajadas, LocalDate antiguedad, double precioAntiguedad, int hijos, boolean casado) {
-		super(precioHora, horasTrabajadas, hijos, casado);
+	protected EmpleadoPermanente(double precioHora, int horasTrabajadas, LocalDate antiguedad, double precioAntiguedad, int hijos, boolean casado, int dni) {
+		super(precioHora, horasTrabajadas, hijos, casado, dni);
 		this.setAntiguedad(antiguedad);
 		this.setPrecioPorAntiguedad(precioAntiguedad);
 	}
