@@ -4,12 +4,14 @@ public abstract class Empleado {
 	
 	private double precioPorHora;
 	private int horasTrabajadas;
+	private Integer dni;
 	private SalarioFamiliar salarioFamiliar;
 	
-	public Empleado(double precioPorHora, int horasTrabajadas, int hijos, boolean casado) {
+	public Empleado(double precioPorHora, int horasTrabajadas, int hijos, boolean casado , Integer dni) {
 		this.setPrecioPorHora(precioPorHora);
 		this.setHorasTrabajadas(horasTrabajadas);
 		this.construirSalarioFamiliar(hijos, casado);
+		this.setDni(dni);
 	}
 	
 	public Empleado() {}
@@ -24,9 +26,15 @@ public abstract class Empleado {
 	public int getHorasTrabajadas() {
 		return horasTrabajadas;
 	}
+	public  Integer getDni() {
+		return dni;
+	}
 
 	public void setHorasTrabajadas(int horasTrabajadas) {
 		this.horasTrabajadas = horasTrabajadas;
+	}
+	public void setDni(int dni) {
+		this.dni = dni;
 	}
 	
 	public SalarioFamiliar getSalarioFamiliar() {
@@ -60,15 +68,10 @@ public abstract class Empleado {
 		if (getClass() != obj.getClass())
 			return false;
 		Empleado other = (Empleado) obj;
-		if (horasTrabajadas != other.horasTrabajadas)
+		if (!dni.equals(other.dni)){
 			return false;
-		if (Double.doubleToLongBits(precioPorHora) != Double.doubleToLongBits(other.precioPorHora))
-			return false;
-		if (salarioFamiliar == null) {
-			if (other.salarioFamiliar != null)
-				return false;
-		} else if (!salarioFamiliar.equals(other.salarioFamiliar))
-			return false;
+		}
+		
 		return true;
 	}
 	
