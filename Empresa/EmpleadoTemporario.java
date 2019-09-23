@@ -2,8 +2,8 @@ package clase5;
 
 public class EmpleadoTemporario extends Empleado {
 	
-	public EmpleadoTemporario(int horasTrabajadas, int hijos, boolean casado) {
-		super(200, horasTrabajadas, hijos, casado);
+	public EmpleadoTemporario(int horasTrabajadas, int hijos, boolean casado,Integer dni) {
+		super(200, horasTrabajadas, hijos, casado,dni);
 	}
 	
 	@Override
