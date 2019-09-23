@@ -12,10 +12,10 @@ public class Empresa {
 	
 	public static void main(String args[]) {
 		ArrayList<Empleado> empleados = new ArrayList<Empleado>();
-		empleados.add(new EmpleadoTemporario(80, 0, true));
-		empleados.add(new EmpleadoPermanente(80, LocalDate.of(2005, Month.MAY, 15), 2, true));
-		empleados.add(new EmpleadoPermanente(160, LocalDate.of(2002, Month.JANUARY, 26), 0, false));
-		empleados.add(new Gerente(160, LocalDate.of(1995, Month.NOVEMBER, 04), 1, true));
+		empleados.add(new EmpleadoTemporario(80, 0, true,213432));
+		empleados.add(new EmpleadoPermanente(80, LocalDate.of(2005, Month.MAY, 15), 2, true,1231465));
+		empleados.add(new EmpleadoPermanente(160, LocalDate.of(2002, Month.JANUARY, 26), 0, false,543561));
+		empleados.add(new Gerente(160, LocalDate.of(1995, Month.NOVEMBER, 04), 1, true,564654));
 		Empresa miEmpresa = new Empresa(1234567, "empresa falsa 123", empleados);
 		System.out.println(miEmpresa.montoTotal());
 
@@ -43,8 +43,6 @@ public class Empresa {
 		this.razonSocial = razonSocial;
 	}
 
-	
-	
 	public ArrayList<Empleado> getEmpleados() {
 		return empleados;
 	}
@@ -53,11 +51,12 @@ public class Empresa {
 		this.empleados = empleados;
 	}
 
+	
 	public double montoTotal() {
 		double total = 0;
-		for(int i = 0; i < this.getEmpleados().size(); i++) {
-			total += this.getEmpleados().get(i).calcularSalario();
-		}
+		 for( Empleado empleado:  this.getEmpleados() ) {
+			 total += empleado.calcularSalario();
+		    } 
 		return total;
 	}
 	
