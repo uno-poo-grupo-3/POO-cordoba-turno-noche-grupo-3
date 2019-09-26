@@ -68,7 +68,7 @@ public abstract class Empleado {
 		if (getClass() != obj.getClass())
 			return false;
 		Empleado other = (Empleado) obj;
-		if (!dni.equals(other.dni)){
+		if (!dni.equals(other.getDni())){
 			return false;
 		}
 		
