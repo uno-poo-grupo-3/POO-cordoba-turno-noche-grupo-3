@@ -7,6 +7,7 @@ public abstract class Empleado {
 	private Integer dni;
 	private SalarioFamiliar salarioFamiliar;
 	
+	
 	public Empleado(double precioPorHora, int horasTrabajadas, int hijos, boolean casado , Integer dni) {
 		this.setPrecioPorHora(precioPorHora);
 		this.setHorasTrabajadas(horasTrabajadas);
@@ -68,7 +69,7 @@ public abstract class Empleado {
 		if (getClass() != obj.getClass())
 			return false;
 		Empleado other = (Empleado) obj;
-		if (!dni.equals(other.getDni())){
+		if (!this.getDni().equals(other.getDni())){
 			return false;
 		}
 		
