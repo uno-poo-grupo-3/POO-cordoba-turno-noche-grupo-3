@@ -58,26 +58,6 @@ public class EmpleadoPermanente extends Empleado {
 	public String toString() {
 		return "EmpleadoPermanente [antiguedad=" + antiguedad + ", precioPorAntiguedad=" + precioPorAntiguedad + "]";
 	}
-
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (!super.equals(obj))
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		EmpleadoPermanente other = (EmpleadoPermanente) obj;
-		if (antiguedad == null) {
-			if (other.antiguedad != null)
-				return false;
-		} else if (!antiguedad.equals(other.antiguedad))
-			return false;
-		if (Double.doubleToLongBits(precioPorAntiguedad) != Double.doubleToLongBits(other.precioPorAntiguedad))
-			return false;
-		return true;
-	}
 	
 	
 }
