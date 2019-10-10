@@ -8,7 +8,8 @@ public abstract class LectorSube {
 	private boolean esBeneficiarioTarifaSocial;
 
 	public LectorSube(float tramo,int  saldo, int cantidadDePasada, boolean esBeneficiarioTarifaSocial) {
-
+		setEsBeneficiarioTarifaSocial(esBeneficiarioTarifaSocial);
+		setCantidadDePasada(cantidadDePasada);
 	}
 	private void setValor(float valor) {
 		this.valor = (esBeneficiarioTarifaSocial)?new TarifaSocial(valor).getValorPasaje():(cantidadDePasada!=0)?getValorPorTramo(tramo,cantidadDePasada):valor;
