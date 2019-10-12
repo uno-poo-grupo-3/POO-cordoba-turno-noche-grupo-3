@@ -11,15 +11,23 @@ import java.util.stream.Collectors;
 
 public class LeerArchivoPersonas {
 	
-	public static void main(String[] args) {		
-		LinkedList<Persona> personas = LeerArchivoPersonas.getPersonas("/Users/juan/Downloads/personas.in");
-		LinkedList<Persona> personasOrdenadasPorDni = LeerArchivoPersonas.getPersonasOrdenadasPorDni(personas);
-		LeerArchivoPersonas.listarPersonas(personasOrdenadasPorDni, "personaOrdenadasPorDni.out");
-		LinkedList<Persona> personasMayoresDe30 = LeerArchivoPersonas.getPersonasMayoresAEdad(personas, 30);
-		LeerArchivoPersonas.listarPersonas(personasMayoresDe30, "personasMayores.out");
+	public static void main(String[] args) {
+		try {
+			LinkedList<Persona> personas = LeerArchivoPersonas.getPersonas("/Users/juan/Downloads/personas.in");
+			System.out.println(personas);
+			LinkedList<Persona> personasOrdenadasPorDni = LeerArchivoPersonas.getPersonasOrdenadasPorDni(personas);
+			System.out.println(personasOrdenadasPorDni);
+			LeerArchivoPersonas.listarPersonas(personasOrdenadasPorDni, "personaOrdenadasPorDni.out");
+			LinkedList<Persona> personasMayoresDe30 = LeerArchivoPersonas.getPersonasMayoresAEdad(personas, 30);
+			System.out.println(personasMayoresDe30);
+			LeerArchivoPersonas.listarPersonas(personasMayoresDe30, "personasMayores.out");
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
+		
 	}
 	
-	public static LinkedList<Persona> getPersonas(String ruta) {
+	public static LinkedList<Persona> getPersonas(String ruta) throws IOException {
 		try(FileReader fileReader = new FileReader(ruta)) {
 			BufferedReader buffer = new BufferedReader(fileReader);
 			String linea = "";
@@ -34,9 +42,8 @@ public class LeerArchivoPersonas {
 			}
 			return personas;
 		} catch(IOException e) {
-			e.printStackTrace();
+			throw e;
 		}
-		return null; 
 	}
 	
 	public static LinkedList<Persona> getPersonasOrdenadasPorDni(LinkedList<Persona> personas) {
@@ -52,14 +59,14 @@ public class LeerArchivoPersonas {
 				.collect(Collectors.toCollection(LinkedList::new));
 	}
 	
-	public static void listarPersonas(LinkedList<Persona> personas, String archivoSalida) {
+	public static void listarPersonas(LinkedList<Persona> personas, String archivoSalida) throws IOException {
 			try(BufferedWriter bw = new BufferedWriter(new FileWriter(archivoSalida))) {
 				for(Persona persona : personas) {
 					bw.write(persona.toString());
 					bw.newLine();
 				}
 			} catch (IOException e) {
-				e.printStackTrace();
+				throw e;
 			}
 		}
 	
