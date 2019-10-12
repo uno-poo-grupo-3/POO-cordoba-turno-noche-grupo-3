@@ -11,6 +11,17 @@ import java.util.stream.Collectors;
 
 public class LeerArchivoPersonas {
 	
+	public static void main(String[] args) {		
+		LinkedList<Persona> personas = LeerArchivoPersonas.getPersonas("/Users/juan/Downloads/personas.in");
+		System.out.println(personas);
+		LinkedList<Persona> personasOrdenadasPorDni = LeerArchivoPersonas.getPersonasOrdenadasPorDni(personas);
+		System.out.println(personasOrdenadasPorDni);
+		LeerArchivoPersonas.listarPersonas(personasOrdenadasPorDni, "personaOrdenadasPorDni.out");
+		LinkedList<Persona> personasMayoresDe30 = LeerArchivoPersonas.getPersonasMayoresAEdad(personas, 30);
+		System.out.println(personasMayoresDe30);
+		LeerArchivoPersonas.listarPersonas(personasMayoresDe30, "personasMayores.out");
+	}
+	
 	public static LinkedList<Persona> getPersonas(String ruta) {
 		try(FileReader fileReader = new FileReader(ruta)) {
 			BufferedReader buffer = new BufferedReader(fileReader);
