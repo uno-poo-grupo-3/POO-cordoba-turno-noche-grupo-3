@@ -1,4 +1,4 @@
-package clase5;
+package empresa;
 
 import static org.junit.Assert.assertEquals;
 

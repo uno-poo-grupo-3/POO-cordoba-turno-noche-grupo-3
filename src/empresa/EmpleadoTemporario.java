@@ -1,4 +1,4 @@
-package clase5;
+package empresa;
 
 public class EmpleadoTemporario extends Empleado {
 	

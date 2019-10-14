@@ -1,4 +1,4 @@
-package clase4;
+package punto;
 
 public class Punto3D extends Punto {
 	private double z;

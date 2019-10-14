@@ -1,4 +1,4 @@
-package clase5;
+package empresa;
 
 public abstract class Empleado {
 	

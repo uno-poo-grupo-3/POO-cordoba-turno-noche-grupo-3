@@ -1,4 +1,6 @@
-package clase4;
+package compilador;
+
+import punto.Punto;
 
 public class Compilador {
 	
