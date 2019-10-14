@@ -5,4 +5,3 @@
 * Juan Picasso
 * Lucas Fernandez
 * Agustin Gonzalez
-* Julian Caloggi
