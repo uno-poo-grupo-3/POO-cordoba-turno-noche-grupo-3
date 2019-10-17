@@ -1,15 +1,22 @@
-package plano;
+package clase6;
 
 import java.util.ArrayList;
-import punto.Punto;
+import clase4.Punto;
 
 public class Plano {
 	
 	public static void main(String[] args) {
 		ArrayList<Punto> puntos = new ArrayList<Punto>();
 		puntos.add(new Punto(1,2));
-		puntos.add(new Punto(3,4));
-		new Plano();
+		puntos.add(new Punto(-3,-4));
+		puntos.add(new Punto(-1,1));
+		puntos.add(new Punto(5,-1));
+		
+		for(Punto p : puntos) {
+			Cuadrante cuadrante = p.getCuadrante();
+			System.out.println(cuadrante);
+		}
+		
 	}
 	
 	private ArrayList<Punto> puntos;
@@ -26,13 +33,6 @@ public class Plano {
 		this.getPuntos().add(punto);
 	}
 	
-	public double getCantPuntos(Cuadrante cuadrante) {
-		int contador = 0;
-		for(int i = 0; i < this.getPuntos().size(); i++) {
-			this.getPuntos().get(i).getCuadrante();
-		}
-		return contador;
-	}
 
 	public ArrayList<Punto> getPuntos() {
 		return puntos;
