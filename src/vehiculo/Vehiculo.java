@@ -2,9 +2,22 @@ package vehiculoherencia;
 
  public class Vehiculo {
 	private int pasajeros=0,id_chofer=0;
+	 
+	 public static void main(String[] args) {
+		Moto m1 = new Moto();
+		Colectivo c1= new Colectivo();
+		
+		c1.agregarPasajero();
+		c1.agregarPasajero();
+		c1.agregarPasajero();
+		m1.agregarPasajero();
+		m1.agregarPasajero();
+		m1.agregarPasajero();
+		System.out.println(c1);
+		System.out.println(m1);
+		
+	}
 	
-
-
 	public Vehiculo() {
 		 this.setPasajeros(pasajeros);
 		 this.setId_chofer(id_chofer);
