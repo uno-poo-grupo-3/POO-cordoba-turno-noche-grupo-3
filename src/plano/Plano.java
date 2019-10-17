@@ -9,10 +9,7 @@ public class Plano {
 		ArrayList<Punto> puntos = new ArrayList<Punto>();
 		puntos.add(new Punto(1,2));
 		puntos.add(new Punto(3,4));
-		
-
 		new Plano();
-		
 	}
 	
 	private ArrayList<Punto> puntos;
