@@ -1,4 +1,5 @@
 package punto;
+import plano.Cuadrante;
 
 public class Punto {
 	
@@ -70,6 +71,22 @@ public class Punto {
 		if (Double.doubleToLongBits(y) != Double.doubleToLongBits(other.y))
 			return false;
 		return true;
+	}
+	
+	public Cuadrante getCuadrante() {
+		if(this.getX() < 0 && this.getY() > 0) {
+			return Cuadrante.UNO;
+		}
+		if(this.getX() > 0 && this.getY() > 0) {
+			return Cuadrante.DOS;
+		}
+		if(this.getX() < 0 && this.getY() < 0) {
+			return Cuadrante.TRES;
+		}
+		if(this.getX() > 0 && this.getY() < 0) {
+			return Cuadrante.CUATRO;
+		}
+		return null;
 	}
 	
 }
