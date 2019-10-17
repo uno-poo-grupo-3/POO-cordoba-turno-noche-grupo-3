@@ -5,6 +5,8 @@ import clase4.Punto;
 
 public class Plano {
 	
+	private ArrayList<Punto> puntos;
+	
 	public static void main(String[] args) {
 		ArrayList<Punto> puntos = new ArrayList<Punto>();
 		puntos.add(new Punto(1,2));
@@ -18,8 +20,6 @@ public class Plano {
 		}
 		
 	}
-	
-	private ArrayList<Punto> puntos;
 	
 	public Plano(ArrayList<Punto> puntos) {
 		this.setPuntos(puntos);
