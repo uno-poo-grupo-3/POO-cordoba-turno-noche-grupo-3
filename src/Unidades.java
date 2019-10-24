@@ -7,7 +7,7 @@ public class Unidades {
  		this.salud=salud;
  	}
 
- 	public void atacar(int valorAtaque) {} //ver si los metodos van a devolver algo
+ 	public void atacar(Unidades unidad) {} //ver si los metodos van a devolver algo
  	public void mover(int x, int y) {} //decidir si manejar el movimiento en int
  	public void usarItem(Object e) {}  //remplazar por la clase/interfaz item
 
@@ -28,7 +28,9 @@ public class Unidades {
 	protected void setSalud(int salud) {
 		this.salud = salud;
 	}
- 	
+	public String getName() {
+		return "";
+	}
 
 
 }

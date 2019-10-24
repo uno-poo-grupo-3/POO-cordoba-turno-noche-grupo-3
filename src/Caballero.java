@@ -1,22 +1,23 @@
 package juegodeestrategia;
 
 public class Caballero extends Unidades {
-	private int pociones=0,caballo=0;
+	private int pociones=0,rebeldia_caballo=0;
 	public Caballero() {
 		super(50,200);
 		this.pociones=0;
-		this.caballo=0;
+		this.rebeldia_caballo=0;
 	}
 	
 	
 	public void calmarCaballo() { //recibe item el metodo? o del objeto?
-		//calmo al caballo
+		this.setCaballo(0);
+		this.setPociones(this.getPociones()-1);
 	}
 	
 	
 	
-	public void atacar(int valorAtaque) {
-		//ataco
+	public void atacar(Unidades unidad) {
+		unidad.setSalud(unidad.getSalud()-this.getAtaque());
 	}
 	
 	public void mover(int x, int y) {
@@ -39,15 +40,19 @@ public class Caballero extends Unidades {
 		this.pociones = pociones;
 	}
 	
-	protected int getCaballo() {
-		return caballo;
+	protected int getRebeldia_caballo() {
+		return rebeldia_caballo;
 	}
-	protected void setCaballo(int caballo) {
-		this.caballo = caballo;
+	protected void setCaballo(int rebeldia_caballo) {
+		this.rebeldia_caballo = rebeldia_caballo;
 	}
 	@Override
 	public String toString() {
 		return "Caballero [pociones=" + getPociones() + ", ataque=" + getAtaque()
-				+ ", salud=" + getSalud() + "]";
+				+ ", salud=" + getSalud() + "rebeldia caballo: "+rebeldia_caballo+"]";
+	}
+	
+	public String getName() {
+		return "Caballero";
 	}
 }

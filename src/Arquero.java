@@ -1,21 +1,22 @@
 package juegodeestrategia;
 
 public class Arquero extends Unidades {
-	private int carcaj=0,pociones=0;
+	private int carcaj=0,paquete_flechas=0;
 	
 		public Arquero() {
 			super(5,50);
 			this.carcaj=20;
-			this.pociones=0;
+			this.paquete_flechas=0;
 		}
 
 		
 		public void recargar() { //recibe item? parametro?
-			//recargo carcaj
+			this.setCarcaj(this.getCarcaj()+6);
+			this.setPaquete_flechas(this.getPaquete_flechas()-1);
 		}
 		
-		public void atacar(int valorAtaque) {
-			//ataco
+		public void atacar(Unidades unidad) {
+			unidad.setSalud(unidad.getSalud()-this.getAtaque());
 		}
 		
 		public void mover(int x, int y) {
@@ -30,6 +31,16 @@ public class Arquero extends Unidades {
 		
 		
 		
+		protected int getPaquete_flechas() {
+			return paquete_flechas;
+		}
+
+
+		protected void setPaquete_flechas(int paquete_flechas) {
+			this.paquete_flechas = paquete_flechas;
+		}
+
+
 		protected int getCarcaj() {
 			return carcaj;
 		}
@@ -40,6 +51,9 @@ public class Arquero extends Unidades {
 
 		@Override
 		public String toString() {
-			return "Arquero [pociones="+pociones+", ataque=" + getAtaque() + ", salud=" + getSalud() +", carcaj=" + carcaj + "]";
+			return "Arquero [paquete_flechas="+paquete_flechas+", ataque=" + getAtaque() + ", salud=" + getSalud() +", carcaj=" + carcaj + "]";
+		}
+		public String getName() {
+			return "Arquero";
 		}
 }

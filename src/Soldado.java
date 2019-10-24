@@ -10,11 +10,13 @@ public class Soldado extends Unidades {
 	}
 	
 	public void restaurarEnergia() {
-		//si tengo pocion de agua, recupero energia
+		this.setEnergia(100);
+		this.setPociones(this.getPociones()-1);
 	}
 	
-	public void atacar(int valorAtaque) {
-		//ataco
+	public void atacar(Unidades unidad) {
+		unidad.setSalud(unidad.getSalud()-this.getAtaque());
+		this.setEnergia(this.getEnergia()-40);
 	}
 	
 	public void mover(int x, int y) {
@@ -53,7 +55,9 @@ public class Soldado extends Unidades {
 	}
 	
 	
-	
+	public String getName() {
+		return "Soldado";
+	}
 
 
 }
