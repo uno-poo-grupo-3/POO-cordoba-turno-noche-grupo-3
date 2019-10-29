@@ -12,6 +12,7 @@ public class Caballero extends Unidad {
 	
 	@Override
 	public Integer atacar(Unidad unidad) throws NoSePuedeAtacarException {
+		
 		this.setCantidadAtaques(this.getCantidadAtaques() + 1);
 		if(this.getCantidadAtaques()==3) {
 			this.setCaballoRebelde(true);
@@ -20,6 +21,10 @@ public class Caballero extends Unidad {
 			throw new NoSePuedeAtacarException("El caballo está rebelde, no se puede atacar.");
 		}
 		return super.atacar(unidad);
+	}
+
+	public void setCaballoRebelde(Boolean caballoRebelde) {
+		this.caballoRebelde = caballoRebelde;
 	}
 
 	private Boolean caballoEstaRebelde() {
