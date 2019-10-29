@@ -7,10 +7,10 @@ public class Soldado extends Unidad {
 
 	public Soldado(String nombre) {
 		super(nombre, 200, 10, 1);
-		this.setEnergia(20);
+		this.setEnergia(5);
 	}
 	
-	private void setEnergia(Integer energia) {
+	public void setEnergia(Integer energia) {
 		this.energia = energia;
 	}
 	
@@ -28,9 +28,12 @@ public class Soldado extends Unidad {
 	}
 	
 	public void consumirPocion() {
-		Boolean seConsumioPocion = this.getInventario().remove(new PocionAgua());
-		if(seConsumioPocion) {
-			this.setEnergia(this.getEnergia() + 50);
+		Integer posicionPocion = this.getInventario().indexOf(new PocionAgua());
+		if(posicionPocion >= 0) {
+			PocionAgua pocion = (PocionAgua) this.getInventario().get(posicionPocion);
+			Integer energia = pocion.consumir(this);
+			this.setEnergia(energia);
+			this.getInventario().remove(new PocionAgua());
 			System.out.println("Consumida pocion, ahora la energía es de " + this.getEnergia());
 		}	
 	}

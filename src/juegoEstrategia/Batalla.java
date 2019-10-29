@@ -61,6 +61,9 @@ public class Batalla {
 				if (unidadActiva instanceof Arquero) 
 					((Arquero) unidadActiva).recargarFlechas();
 			}
+			catch(CaballoLocoException e) {
+				((Caballero) unidadActiva).consumirPocion();
+			}
 			catch (NoSePuedeAtacarException e) {
 				System.out.println("La unidad " + unidadActiva.getNombre() + " no pudo atacar porque: " + e.getMessage());
 			} finally {
