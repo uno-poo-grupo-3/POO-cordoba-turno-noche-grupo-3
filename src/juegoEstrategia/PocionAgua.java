@@ -26,16 +26,6 @@ public class PocionAgua extends Item {
 		return this.energia;
 	}
 	
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() == obj.getClass())
-			return true;
-		return true;
-	}
 
 	public Integer consumir(Soldado soldado) {
 		Integer energia = this.getEnergia();

@@ -2,12 +2,11 @@ package juegoEstrategia;
 
 public class Arquero extends Unidad {
 	
-	private Integer cantidadFlechas;
-	private Integer flechasRepuesto;
+	private Integer carcajConFlechas;
 
 	public Arquero(String nombre) {
 		super(nombre, 50, 5, 5);
-		this.setCantidadFlechas(20);
+		this.setCantidadFlechas(2);
 	}
 
 	@Override
@@ -20,11 +19,11 @@ public class Arquero extends Unidad {
 	}
 	
 	private Integer getCantidadFlechas() {
-		return this.cantidadFlechas;
+		return this.carcajConFlechas;
 	}
 	
 	private void setCantidadFlechas(Integer cantidadFlechas) {
-		this.cantidadFlechas = cantidadFlechas;
+		this.carcajConFlechas = cantidadFlechas;
 	}
 	
 	private Boolean tengoFlechas() {
@@ -35,19 +34,15 @@ public class Arquero extends Unidad {
 		this.setCantidadFlechas(this.getCantidadFlechas()-1);
 	}
 	
-	public void setFlechasRepuesto(Integer flechasRepuesto) {
-		this.flechasRepuesto = flechasRepuesto;
-	}
-	
-	private Integer getFlechasRepuesto() {
-		return this.flechasRepuesto;
-	}
-	
 	public void recargarFlechas() {
-		System.out.println(this.getNombre() + " recargó " + this.getFlechasRepuesto() + " flechas.");
-		Integer flechasRepuesto = this.getFlechasRepuesto();
-		this.setCantidadFlechas(flechasRepuesto);
-		this.setFlechasRepuesto(0);
+		Integer posicionPaqueteFlechas = this.getInventario().indexOf(new PaqueteFlechas());
+		if(posicionPaqueteFlechas >= 0) {
+			PaqueteFlechas paqueteFlechas = (PaqueteFlechas) this.getInventario().get(posicionPaqueteFlechas);
+			Integer flechas = paqueteFlechas.consumir();
+			this.setCantidadFlechas(this.getCantidadFlechas() + flechas);
+			this.getInventario().remove(new PaqueteFlechas());
+			System.out.println("Flechas recargasdas +" + this.getCantidadFlechas());
+		}	
 	}
 		
 }

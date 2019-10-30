@@ -6,7 +6,8 @@ public class Main {
 		Unidad caballero = new Caballero("El caballero audaz");
 		caballero.agregarItem(new PocionAgua());
 		Arquero arquero = new Arquero("Pepe el veloz");
-		arquero.setFlechasRepuesto(100);
+		arquero.agregarItem(new PaqueteFlechas());
+		arquero.agregarItem(new PaqueteFlechas());
 		Batalla batalla = new Batalla(caballero, arquero);
 		Unidad unidadGanadora = batalla.simular();
 		System.out.println("La unidad ganadora es " + unidadGanadora.getNombre());	

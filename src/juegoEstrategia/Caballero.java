@@ -6,7 +6,7 @@ public class Caballero extends Unidad {
 	private Integer cantidadAtaques;
 
 	public Caballero(String nombre) {
-		super(nombre, 200, 50, 2);
+		super(nombre, 200, 1, 2);
 		this.setCantidadAtaques(0);
 		this.setCaballoRebelde(false);
 	}
