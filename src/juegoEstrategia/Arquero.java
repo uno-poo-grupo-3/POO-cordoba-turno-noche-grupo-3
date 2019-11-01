@@ -37,7 +37,7 @@ public class Arquero extends Unidad {
 		return super.atacar(unidad);
 	}
 	
-	private Integer getCantidadFlechas() {
+	public Integer getCantidadFlechas() {
 		return this.carcajConFlechas;
 	}
 	

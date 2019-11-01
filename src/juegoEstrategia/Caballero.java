@@ -50,7 +50,7 @@ public class Caballero extends Unidad {
 		this.caballoRebelde = caballoRebelde;
 	}
 
-	private Boolean caballoEstaRebelde() {
+	Boolean caballoEstaRebelde() {
 		return this.caballoRebelde;
 	}
 	

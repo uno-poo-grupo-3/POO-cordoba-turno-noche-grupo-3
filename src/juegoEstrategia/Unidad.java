@@ -66,11 +66,11 @@ public class Unidad {
 		this.distanciaAtaqueMin = distanciaAtaqueMin;
 	}
 	
-	private Integer getDistanciaAtaqueMax() {
+	Integer getDistanciaAtaqueMax() {
 		return this.distanciaAtaqueMax;
 	}
 	
-	private Integer getDistanciaAtaqueMin() {
+	Integer getDistanciaAtaqueMin() {
 		return this.distanciaAtaqueMin;
 	}
 
