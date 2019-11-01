@@ -5,7 +5,7 @@ import punto.Punto;
 
 /**
  * 
- * Esta clase representa a la unidad Arquero.
+ * Esta clase representa a la Unidad báscica.
  * 
  * @verion 1.0
  * @author Juan Picasso
