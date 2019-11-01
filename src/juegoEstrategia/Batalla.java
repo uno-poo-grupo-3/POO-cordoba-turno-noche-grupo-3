@@ -1,11 +1,7 @@
 package juegoEstrategia;
 
-import java.util.ArrayList;
-
 public class Batalla {
 	
-	private ArrayList<Unidad> campo;
-	private static final Integer CANTIDAD_CASILLEROS = 10;
 	private Unidad unidad1;
 	private Unidad unidad2;
 	
@@ -29,17 +25,6 @@ public class Batalla {
 	private void setUnidad2(Unidad unidad2) {
 		this.unidad2 = unidad2;
 	}
-
-	
-	
-	private void setCasilleros() {
-		this.campo = new ArrayList<Unidad>(CANTIDAD_CASILLEROS);
-	}
-	
-	public void agregarUnidades(Unidad unidad1, Unidad unidad2) {
-		this.campo.add(0, unidad1);
-		this.campo.add(CANTIDAD_CASILLEROS - 1, unidad2);
-	}
 	
 	public Unidad simular() {
 		Unidad ganador = null;
@@ -52,7 +37,7 @@ public class Batalla {
 				if(unidadInactiva.getSalud() <= 0) {
 					ganador = unidadActiva;
 				}
-			} 
+			}
 			catch(SinEnergiaException e) {
 				if (unidadActiva instanceof Soldado) 
 					((Soldado) unidadActiva).consumirPocion();

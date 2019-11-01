@@ -1,11 +1,13 @@
 package juegoEstrategia;
 
+import punto.Punto;
+
 public class Arquero extends Unidad {
 	
 	private Integer carcajConFlechas;
 
-	public Arquero(String nombre) {
-		super(nombre, 50, 5, 5);
+	public Arquero(String nombre, Punto posicion) {
+		super(nombre, 50, 5, 2, 5, posicion);
 		this.setCantidadFlechas(2);
 	}
 

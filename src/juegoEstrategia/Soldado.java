@@ -1,12 +1,14 @@
 package juegoEstrategia;
 
+import punto.Punto;
+
 public class Soldado extends Unidad {
 	
 	private Integer energia;
 	private static final Integer ENERGIA_ATAQUE = 10;
 
-	public Soldado(String nombre) {
-		super(nombre, 200, 10, 1);
+	public Soldado(String nombre, Punto posicion) {
+		super(nombre, 200, 10, 1, 1, posicion);
 		this.setEnergia(5);
 	}
 	

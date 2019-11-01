@@ -1,12 +1,14 @@
 package juegoEstrategia;
 
+import punto.Punto;
+
 public class Caballero extends Unidad {
 	
 	private Boolean caballoRebelde;
 	private Integer cantidadAtaques;
 
-	public Caballero(String nombre) {
-		super(nombre, 200, 1, 2);
+	public Caballero(String nombre, Punto posicion) {
+		super(nombre, 200, 50, 1, 2, posicion);
 		this.setCantidadAtaques(0);
 		this.setCaballoRebelde(false);
 	}
