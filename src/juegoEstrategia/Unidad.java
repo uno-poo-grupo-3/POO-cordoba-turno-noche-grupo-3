@@ -3,6 +3,16 @@ package juegoEstrategia;
 import java.util.ArrayList;
 import punto.Punto;
 
+/**
+ * 
+ * Esta clase representa a la unidad Arquero.
+ * 
+ * @verion 1.0
+ * @author Juan Picasso
+ * @author Agustin Gonzalez
+ * @author Lucas Fernandez
+ *
+ */
 public class Unidad {
 	
 	private String nombre;
@@ -28,6 +38,10 @@ public class Unidad {
 		this.setInventario(inventario);
 	}
 	
+	/**
+	 * Se agrega un item al inventario.
+	 * @param item - El cual es agregado al inventario.
+	 */
 	public void agregarItem(Item item) {
 		this.getInventario().add(item);
 	}
@@ -64,7 +78,13 @@ public class Unidad {
 		this.inventario = inventario;
 	}
 
-
+	/**
+	 * Ataque básico de una unidad
+	 * 
+	 * @param unidad - La unidad enemiga a la cual queremos atacar.
+	 * @return Salud restante de la unidad enemiga.
+	 * @throws DistanciaInvalidaParaAtacarException cuando la distancia del enemigo no esta dentro del rango permitido de ataque.
+	 */
 	public Integer atacar(Unidad enemigo) throws NoSePuedeAtacarException  {
 		Boolean tieneAlcanceParaAtacar = this.distanciaPermitida(enemigo);
 		if(!tieneAlcanceParaAtacar) {
@@ -83,6 +103,12 @@ public class Unidad {
 		return enemigo.getSalud();
 	}
 	
+	/**
+	 * Se verifica si el enemigo esta dentro del rango de ataque usando el calculo de distancia entre puntos.
+	 * 
+	 * @param enemigo - El cual es usado para obtener la posicion.
+	 * @return Si el enemigo esta o no dentro de nuestro rando de ataque.
+	 */
 	public Boolean distanciaPermitida(Unidad enemigo) {
 		Punto posicionEnemigo = enemigo.getPosicion();
 		double distancia = this.getPosicion().calcularDistancia(posicionEnemigo);

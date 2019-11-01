@@ -2,6 +2,16 @@ package juegoEstrategia;
 
 import punto.Punto;
 
+/**
+ * 
+ * Esta clase representa a la unidad Caballero.
+ * 
+ * @verion 1.0
+ * @author Juan Picasso
+ * @author Agustin Gonzalez
+ * @author Lucas Fernandez
+ *
+ */
 public class Caballero extends Unidad {
 	
 	private Boolean caballoRebelde;
@@ -13,6 +23,13 @@ public class Caballero extends Unidad {
 		this.setCaballoRebelde(false);
 	}
 	
+	/**
+	 * Ataca a una unidad enemiga. Vamos a poder atacar siempre y cuando el caballo no este rebelde, cada 3 ataques el caballo se pondra rebelde.
+	 * 
+	 * @param unidad - La unidad enemiga a la cual queremos atacar.
+	 * @return Salud restante de la unidad enemiga.
+	 * @throws CaballoLocoException Si el caballo esta rebelde.
+	 */
 	@Override
 	public Integer atacar(Unidad unidad) throws NoSePuedeAtacarException {
 		if(this.getCantidadAtaques().equals(3))
@@ -45,6 +62,10 @@ public class Caballero extends Unidad {
 		this.cantidadAtaques = cantidadAtaques;
 	}
 	
+	/**
+	 * 
+	 * Consumo una poción del inventario (si es que tiene) para quitarle lo rebelde al caballo y poder seguir atacando.
+	 */
 	public void consumirPocion() {
 		Integer posicionPocion = this.getInventario().indexOf(new PocionAgua());
 		if(posicionPocion >= 0) {

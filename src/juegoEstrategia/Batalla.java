@@ -1,5 +1,15 @@
 package juegoEstrategia;
 
+/**
+ * 
+ * Esta clase representa a la unidad Arquero.
+ * 
+ * @verion 1.0
+ * @author Juan Picasso
+ * @author Agustin Gonzalez
+ * @author Lucas Fernandez
+ *
+ */
 public class Batalla {
 	
 	private Unidad unidad1;
@@ -26,6 +36,11 @@ public class Batalla {
 		this.unidad2 = unidad2;
 	}
 	
+	/**
+	 * Ejecuta una simulación simple en la que cada unidad va a intentar atacar siempre y cuando pueda. En caso de no poder atacar intentará recuperarse de esos estados adversos consumiendo items de su inventario. 
+	 * 
+	 * @return La unidad ganadora.
+	 */
 	public Unidad simular() {
 		Unidad ganador = null;
 		Unidad unidadActiva = this.getUnidad1();
