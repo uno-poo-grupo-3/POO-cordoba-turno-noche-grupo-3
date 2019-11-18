@@ -1,59 +1,31 @@
-package vehiculoherencia;
+package vehiculo;
 
- public class Vehiculo {
-	private int pasajeros=0,id_chofer=0;
-	 
-	 public static void main(String[] args) {
-		Moto m1 = new Moto();
-		Colectivo c1= new Colectivo();
-		
-		c1.agregarPasajero();
-		c1.agregarPasajero();
-		c1.agregarPasajero();
-		m1.agregarPasajero();
-		m1.agregarPasajero();
-		m1.agregarPasajero();
-		System.out.println(c1);
-		System.out.println(m1);
-		
+public abstract class Vehiculo {
+	private int kmRecorridos;
+	protected Persona Persona;
+	public Vehiculo(int kmRecorridos, Persona persona) {
+		this.setKmRecorridos(kmRecorridos);
+		this.setChofer(persona);
 	}
 	
-	public Vehiculo() {
-		 this.setPasajeros(pasajeros);
-		 this.setId_chofer(id_chofer);
-	}
-
-
-	 protected void agregarPasajero() {}
-	 protected void quitarPasajero() {}
-	 protected void cambiarChofer(int id_chofer) {}
-	 protected void conocerKM() {}
-	 
-
+	public abstract void cambioChofer(Persona Chofer) throws NoSePuedeCambiarChofer;
 	
-
-	protected int getPasajeros() {
-		return pasajeros;
+	public int getkmRecorridos() {
+		return kmRecorridos;
 	}
 
-
-	protected void setPasajeros(int pasajeros) {
-		this.pasajeros = pasajeros;
+	public Persona getChofer() {
+		return Persona;
 	}
 
-
-	@Override
+	public void setKmRecorridos(int kmRecorridos) {
+		this.kmRecorridos = kmRecorridos;
+	}
+	public void setChofer(Persona persona) {
+		Persona = persona;
+	}
 	public String toString() {
-		return "Vehiculo [id_chofer= #" + id_chofer + ", pasajeros=" + pasajeros + "]";
+		return  "la cantidad de km recorridos fue de :" + this.getkmRecorridos() + 
+				" y el chofer es :" + this.getChofer();
 	}
-	
-	protected int getId_chofer() {
-		return id_chofer;
-	}
-
-
-	protected void setId_chofer(int id_chofer) {
-		this.id_chofer = id_chofer;
-	}
-
 }
