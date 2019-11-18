@@ -1,34 +1,35 @@
-package vehiculoherencia;
+package vehiculo;
 
 public class Moto extends Vehiculo{
-
-	public Moto () {
-		super();
+	private Persona acompaniante;
+	public Moto(int kmRecorridos, Persona Chofer, Persona acompaniante) {
+		super(kmRecorridos, Chofer);
+		this.setAcompaniante(acompaniante);
 	}
 
-	public void agregarPasajero() {
-		if(super.getPasajeros()==1) {
-			super.setPasajeros(1);
+	@Override
+	public void cambioChofer(Persona Chofer) throws NoSePuedeCambiarChofer {
+		if (acompaniante==null) {
+			setChofer(Chofer);
+
 		}else {
-			super.setPasajeros(getPasajeros()+1);
+			throw new NoSePuedeCambiarChofer("No se puede cambiar de chofer mientras haya acompañantes");
 		}
 	}
-	public void quitarPasajero() {
-		if(super.getPasajeros()!=0) {
-			super.setPasajeros(getPasajeros()-1);
+	public void agregoPasajero(Persona persona) {
+		if (acompaniante==null) {
+			setAcompaniante(Persona);
+		}else {
+			System.out.println("No se puede agregar mas de un acompañante a la moto");
+			
 		}
+	}
+	public Persona getAcompaniante() {
+		return acompaniante;
+	}
+	public void setAcompaniante(Persona acompaniante) {
+		this.acompaniante = acompaniante;
 	}
 
-	public void cambiarChofer(int id_chofer) {
-		if(super.getPasajeros()==0) {
-			super.setId_chofer(id_chofer);
-		}
-	}
-	public void conocerKM() {
-		System.out.println("Kilometros recorridos");
-	}
+
 }
-
-
-
-
