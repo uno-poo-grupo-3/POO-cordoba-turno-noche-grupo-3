@@ -6,7 +6,13 @@ public class Colectivo extends Vehiculo {
 	public Colectivo(int kmRecorridos, Persona Chofer) {
 		super(kmRecorridos, Chofer);
 		this.pasajeros = new ArrayList<Persona>();
-	}	
+		
+	}
+	public Colectivo(int kmRecorridos, Persona Chofer,ArrayList<Persona> pasajeros) {
+		super(kmRecorridos, Chofer);
+		this.pasajeros = pasajeros;
+		//System.out.println(this.pasajeros);
+	}
 	@Override
 	public void cambioChofer(Persona Chofer) throws NoSePuedeCambiarChofer {
 		if(pasajeros.isEmpty()) {
@@ -21,5 +27,8 @@ public class Colectivo extends Vehiculo {
 	}
 	public void quitarPasajero(Persona PasajeroABajarr) {
 		pasajeros.remove(PasajeroABajarr);
+	}
+	public  void imprimoPasajeros(int i) {
+		System.out.println(pasajeros.get(i));
 	}
 }
