@@ -17,10 +17,10 @@ public class Plano {
 		puntos.add(new Punto(5,-1));
 		Plano plano = new Plano(puntos);
 		
-		for(Punto p : plano.getPuntos()) {
-			Cuadrante cuadrante = p.getCuadrante();
-			System.out.println(cuadrante);
-		}
+		System.out.println(plano.getCantidadDePuntos(Cuadrante.UNO));
+		System.out.println(plano.getCantidadDePuntos(Cuadrante.DOS));
+		System.out.println(plano.getCantidadDePuntos(Cuadrante.TRES));
+		System.out.println(plano.getCantidadDePuntos(Cuadrante.CUATRO));
 		
 	}
 	
@@ -34,6 +34,16 @@ public class Plano {
 	
 	public void agregarPunto(Punto punto) {
 		this.getPuntos().add(punto);
+	}
+	
+	public int getCantidadDePuntos(Cuadrante cuadrante) {
+		int cantidadPuntos = 0;
+		for(Punto punto : this.getPuntos()) {
+			if(punto.getCuadrante().equals(cuadrante)) {
+				cantidadPuntos++;
+			}
+		}
+		return cantidadPuntos;
 	}
 	
 
