@@ -1,9 +1,13 @@
-package clase6;
+package plano;
 
 import java.util.ArrayList;
-import clase4.Punto;
+import punto.Punto;
+
 
 public class Plano {
+
+	
+	private ArrayList<Punto> puntos;
 	
 	public static void main(String[] args) {
 		ArrayList<Punto> puntos = new ArrayList<Punto>();
@@ -19,8 +23,6 @@ public class Plano {
 		}
 		
 	}
-	
-	private ArrayList<Punto> puntos;
 	
 	public Plano(ArrayList<Punto> puntos) {
 		this.setPuntos(puntos);
