@@ -13,14 +13,14 @@ public class Moto extends Vehiculo{
 			setChofer(Chofer);
 
 		}else {
-			throw new NoSePuedeCambiarChofer("No se puede cambiar de chofer mientras haya acompañantes");
+			throw new NoSePuedeCambiarChofer("No se puede cambiar de chofer mientras haya acompaï¿½antes");
 		}
 	}
-	public void agregoPasajero(Persona persona) {
+	public void agregoPasajero(Persona persona) throws MaximaCantidadDePasajerosException {
 		if (acompaniante==null) {
 			setAcompaniante(Persona);
 		}else {
-			System.out.println("No se puede agregar mas de un acompañante a la moto");
+			throw new MaximaCantidadDePasajerosException("La moto solo puede tener 1 acompaÃ±ante");
 			
 		}
 	}

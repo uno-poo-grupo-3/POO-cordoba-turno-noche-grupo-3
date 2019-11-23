@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Main {
 
-	public static void main(String[] args) throws NoSePuedeCambiarChofer {
+	public static void main(String[] args) throws NoSePuedeCambiarChofer, MaximaCantidadDePasajerosException {
 		// TODO Auto-generated method stub
 		Persona ChoferMoto = new Persona("agustin");
 		Persona AcompanianteMoto2 = new Persona("agustin2");
