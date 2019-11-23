@@ -20,5 +20,4 @@ public class Circulo implements Figura {
 		this.radio = radio;
 	}
 	
-	
 }
