@@ -18,7 +18,7 @@ public class Arquero extends Unidad {
 
 	public Arquero(String nombre, Punto posicion) {
 		super(nombre, 50, 5, 2, 5, posicion);
-		this.setCantidadFlechas(2);
+		this.setCantidadFlechas(20);
 	}
 
 	/**

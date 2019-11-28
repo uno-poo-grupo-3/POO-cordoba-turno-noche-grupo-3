@@ -22,7 +22,7 @@ public class Soldado extends Unidad {
 
 	public Soldado(String nombre, Punto posicion) {
 		super(nombre, 200, 10, 1, 1, posicion);
-		this.setEnergia(5);
+		this.setEnergia(100);
 	}
 	
 	public void setEnergia(Integer energia) {
